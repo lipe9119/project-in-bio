@@ -1,0 +1,1 @@
+export const TRAIL_DAYS = 3
