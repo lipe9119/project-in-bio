@@ -27,6 +27,7 @@ export default function UserCard() {
             );
           })}
         </div>
+        </div>
         <div className="flex flex-col gap-3 w-full h-[172px]">
           <div className="w-full flex flex-col items-center gap-3">
             <Button className="w-full">Template Saas - Compre agora</Button>
@@ -34,7 +35,6 @@ export default function UserCard() {
               <Plus />
             </button>
           </div>
-        </div>
       </div>
     </div>
   );
