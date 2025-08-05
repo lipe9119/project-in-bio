@@ -10,7 +10,7 @@ export default function Button({ children, variant = "primary", ...props }: Butt
     <button
       {...props}
       className={cn(
-        "p-3 text-white rounded-xl font-bold whitespace-nowrap hover:opacity-95 disabled:opacity-70",
+        "p-3 text-white rounded-xl font-bold whitespace-nowrap hover:opacity-95 disabled:opacity-70 disabled:cursor-not-allowed",
         variant === "primary" && "bg-accent-purple",
         variant === "secundary" && "bg-background-tertiary",
         variant === "ghost" && "border-border-primary",
