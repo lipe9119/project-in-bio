@@ -114,7 +114,7 @@ export default function NewProject({ profileId }: { profileId: string }) {
 
               <div className="flex flex-col gap-1">
                 <label htmlFor="project-description" className="text-white font-bold">
-                  Título do projeto
+                  Descrição
                 </label>
                 <TextArea
                   id="project-description"

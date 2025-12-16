@@ -1,6 +1,7 @@
 import ProjectCard from "@/app/components/commons/project-card";
 import TotalVisits from "@/app/components/commons/total-visits";
 
+import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
 import UserCard from "@/app/components/commons/user-card";
 import { auth } from "@/app/lib/auth";
 import { getDownloadURLFromPath } from "@/app/lib/firebase";
@@ -29,6 +30,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   const isOwner = profileData.userId === session?.user?.id;
 
   // TODO: add page view
+  if (!isOwner) await increaseProfileVisits(profileId);
 
   // TODO: Se usuario não estiver no trial, não deixar ver o porjeto. Direcionar para o upgrade
 
@@ -57,7 +59,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
       </div>
 
       <div className="absolute bottom-4 right-0 left-0 w-min mx-auto">
-        <TotalVisits />
+        {isOwner && <TotalVisits totalVisits={profileData.totalVisits} />}
       </div>
     </div>
   );
