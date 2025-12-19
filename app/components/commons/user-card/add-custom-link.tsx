@@ -15,8 +15,6 @@ interface AddCustomLinkProps {
 }
 
 export function AddCustomLink({ customLink1, customLink2, customLink3 }: AddCustomLinkProps) {
-  console.log({ customLink1, customLink2, customLink3 });
-
   const router = useRouter();
   const { profileId } = useParams();
   const [isOpen, setIsOpen] = useState(false);
