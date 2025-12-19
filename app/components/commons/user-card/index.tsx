@@ -20,7 +20,7 @@ export default async function UserCard({
       <div className="size-48">
         <img
           src={(await getDownloadURLFromPath(profileData?.imagePath || "")) || "/me.webp"}
-          alt="Me"
+          alt="Profile Image"
           className="rounded-full object-cover w-full h-full"
         />
       </div>

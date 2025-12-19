@@ -10,17 +10,21 @@ export default function ProjectCard({
   project,
   isOwner,
   img,
+  name,
+  description,
 }: {
-  project: ProjectData;
-  isOwner: boolean;
+  project?: ProjectData;
+  isOwner?: boolean;
   img: string;
+  name?: string;
+  description?: string;
 }) {
   const { profileId } = useParams();
-  const projectUrl = project.url;
-  const formattedUrl = formatUrl(projectUrl);
+  const projectUrl = project?.url;
+  const formattedUrl = formatUrl(projectUrl || "");
 
   async function handleClick() {
-    if (!profileId || !project.id || isOwner) return;
+    if (!profileId || !project?.id || isOwner) return;
     await increaseProjectVisits(profileId as string, project.id);
   }
 
@@ -38,14 +42,12 @@ export default function ProjectCard({
         <div className="flex flex-col gap-2">
           {isOwner && (
             <span className="uppercase text-xs font-bold text-accent-green">
-              {project.totalVisits || 0} cliques
+              {project?.totalVisits || 0} cliques
             </span>
           )}
           <div className="flex flex-col">
-            <span className="text-white font-bold">{project.name}</span>
-            <span className="text-content-body text-sm">
-              {project.description || "Sem descrição"}
-            </span>
+            <span className="text-white font-bold">{name || project?.name}</span>
+            <span className="text-content-body text-sm">{description || project?.description}</span>
           </div>
         </div>
       </div>
